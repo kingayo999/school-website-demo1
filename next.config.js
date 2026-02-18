@@ -15,6 +15,10 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  devIndicators: {
+    buildActivity: false,
+    staticIndicator: false,
+  },
 }
 
 module.exports = nextConfig

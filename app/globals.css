@@ -22,11 +22,16 @@
     letter-spacing: -0.02em;
   }
   
-  /* Hide Next.js dev indicator */
+  /* Hide Next.js dev and branding indicators */
   #__next-build-watcher,
   [data-nextjs-toast],
-  [data-nextjs-dialog] {
+  [data-nextjs-dialog],
+  [data-nextjs-indicator],
+  .nextjs-static-indicator,
+  .nextjs-toast-errors-parent {
     display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
   
   /* Ensure all text is readable with good contrast - but exclude buttons */
