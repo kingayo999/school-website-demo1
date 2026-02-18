@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    background-color: #fafafa;
+  }
+  
+  * {
+    @apply border-gray-200;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Hide Next.js dev indicator */
+  #__next-build-watcher,
+  [data-nextjs-toast],
+  [data-nextjs-dialog] {
+    display: none !important;
+  }
+  
+  /* Ensure all text is readable with good contrast - but exclude buttons */
+  p, span, div, a:not(.btn-primary):not([class*="btn"]), li, td, th {
+    @apply text-gray-900;
+  }
+  
+  /* Ensure text on colored backgrounds is readable */
+  .text-white,
+  .text-white * {
+    color: #ffffff !important;
+  }
+  
+  .text-gray-900,
+  .text-gray-900 * {
+    color: #111827 !important;
+  }
+  
+  .text-gray-700,
+  .text-gray-700 * {
+    color: #374151 !important;
+  }
+  
+  .text-gray-600,
+  .text-gray-600 * {
+    color: #4b5563 !important;
+  }
+  
+  /* Force white text on all buttons - must override base layer */
+  .btn-primary,
+  .btn-primary *,
+  a.btn-primary,
+  a.btn-primary * {
+    color: #ffffff !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-green to-primary-green-dark hover:from-primary-green-dark hover:to-primary-green font-bold py-4 px-8 sm:py-5 sm:px-10 rounded-xl text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-glow transform hover:scale-105 active:scale-95 relative overflow-hidden;
+  }
+  
+  /* Force white text and icon on ALL CTA buttons - highest specificity */
+  .btn-primary,
+  .btn-primary > *,
+  .btn-primary span,
+  .btn-primary svg,
+  .btn-primary *,
+  a.btn-primary,
+  a.btn-primary > *,
+  a.btn-primary span,
+  a.btn-primary svg,
+  a.btn-primary *,
+  .gradient-cta .btn-primary,
+  .gradient-cta .btn-primary > *,
+  .gradient-cta .btn-primary span,
+  .gradient-cta .btn-primary svg,
+  .gradient-cta .btn-primary *,
+  section .btn-primary,
+  section .btn-primary > *,
+  section .btn-primary span,
+  section .btn-primary svg,
+  section .btn-primary * {
+    color: #ffffff !important;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-primary:hover::before {
+    @apply opacity-10;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-primary-blue to-primary-blue-dark hover:from-primary-blue-dark hover:to-primary-blue text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-xl text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-glow-blue;
+  }
+  
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto w-full;
+  }
+  
+  /* Professional card styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 border border-gray-100;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-large hover:-translate-y-1;
+  }
+  
+  /* Professional badge */
+  .badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold shadow-sm;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-50 text-primary-green border border-green-200;
+  }
+  
+  .badge-blue {
+    @apply badge bg-blue-50 text-primary-blue border border-blue-200;
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-hero {
+    @apply bg-gradient-to-br from-primary-blue via-primary-blue-dark to-blue-900;
+  }
+  
+  .gradient-cta {
+    @apply bg-gradient-to-r from-primary-green via-primary-green-dark to-emerald-700;
+  }
+  
+  /* Force white text on all buttons inside CTA sections */
+  .gradient-cta .btn-primary,
+  .gradient-cta .btn-primary *,
+  .gradient-cta .btn-primary span,
+  .gradient-cta .btn-primary svg,
+  section[class*="gradient"] .btn-primary,
+  section[class*="gradient"] .btn-primary *,
+  section[class*="gradient"] .btn-primary span,
+  section[class*="gradient"] .btn-primary svg,
+  section[class*="primary-green"] .btn-primary,
+  section[class*="primary-green"] .btn-primary *,
+  section[class*="primary-green"] .btn-primary span,
+  section[class*="primary-green"] .btn-primary svg {
+    color: #ffffff !important;
+  }
+  
+  /* Image optimization classes */
+  .image-cover {
+    @apply object-cover w-full h-full;
+  }
+  
+  /* Responsive text utilities */
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl;
+  }
+  
+  /* Professional section dividers */
+  .section-divider {
+    @apply border-t border-gray-200 my-16;
+  }
+  
+  /* Animated underline */
+  .underline-animated {
+    @apply relative;
+  }
+  
+  .underline-animated::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-1 bg-primary-green transition-all duration-300;
+  }
+  
+  .underline-animated:hover::after {
+    @apply w-full;
+  }
+}
+
